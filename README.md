@@ -1,8 +1,9 @@
-# strapi
+# strapi Application deployment on EC2 using Terraform and Github Action #
 
-## Create a VPC and Ubuntu Ec2 Instance using Terraform
+Terraform create:
+VPC  
+Ubuntu Ec2 Instance with user data script
 
-## Run User Data script while provisioning the EC2 Instance
 
 
 
