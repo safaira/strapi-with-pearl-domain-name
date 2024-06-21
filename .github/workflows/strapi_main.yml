@@ -2,10 +2,10 @@ name: Terraform_automated
 on:
   push:
     branches:
-    - arun
+    - SaniyaShaikh-Dev
   pull_request:
     branches:
-    - arun
+    - SaniyaShaikh-Dev
 jobs:
   terraform:
     name: "Terraform"
