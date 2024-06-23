@@ -7,22 +7,28 @@ resource "aws_instance" "strapi-ec2" {
 
   key_name                    = "k8-key-pair"
   associate_public_ip_address = true
-  user_data                   = <<-EOF
-                                #!/bin/bash
-                                sudo apt update
-                                curl -fsSL https://deb.nodesource.com/setup_20.x -o nodesource_setup.sh
-                                sudo bash -E nodesource_setup.sh
-                                sudo apt update && sudo apt install nodejs -y
-                                sudo npm install -g yarn && sudo npm install -g pm2
-                                echo -e "skip\n" | npx create-strapi-app simple-strapi --quickstart
-                                cd simple-strapi
-                                echo "const strapi = require('@strapi/strapi');
-                                strapi().start();" > server.js
-                                pm2 start server.js --name strapi-server
-                                pm2 save && pm2 startup                               
-                                sleep 360
-                                EOF
-
+  user_data                      = <<-EOF
+                                  #!/bin/bash
+                                  sudo apt update
+                                  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+                                  export NVM_DIR="$HOME/.nvm"
+                                  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+                                  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+                                  sudo chmod 764 ~/.nvm/nvm.sh
+                                  ~/.nvm/nvm.sh
+                                  nvm install node && sudo apt install -y npm
+                                  nvm install 18.0
+                                  nvm use 18
+                                  sudo apt update -y
+                                  echo -e "skip/n" | npx create-strapi-app@latest saniya-strapi-project --quickstart
+                                  npm install pm2 -g
+                                  cd saniya-strapi-project
+                                  echo "const strapi = require('@strapi/strapi');
+                                  strapi().start();" > server.js
+                                  pm2 start server.js  
+                                  pm2 start npm --name strapi -- run start
+                                  sleep 360                            
+                                  EOF         
   tags = {
     Name = "StrapiEC2"
   }
