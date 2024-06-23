@@ -6,9 +6,9 @@ jobs:
   Terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
-    env:
-       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # env:
+    #    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+    #    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     defaults:
       run:
         working-directory: terraform
@@ -23,6 +23,13 @@ jobs:
         with:
           terraform_version: 1.0.11 
           terraform_wrapper: false
+
+      - name: Configure AWS Credentials
+        env:
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+            echo "AWS credentials configured"
            
       - name: Terraform Init
         id: init
