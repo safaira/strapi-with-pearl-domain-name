@@ -8,7 +8,7 @@ resource "aws_vpc" "strapi_vpc" {
 resource "aws_subnet" "subnet1" {
   vpc_id            = aws_vpc.strapi_vpc.id
   cidr_block        = "10.0.0.0/24"
-  availability_zone = "var.region"
+  availability_zone = "ap-south-1"
 }
 
 resource "aws_internet_gateway" "strapi_igw" {
