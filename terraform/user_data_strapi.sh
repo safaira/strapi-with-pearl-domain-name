@@ -17,5 +17,6 @@ npm install pm2 -g
 echo "const strapi = require('@strapi/strapi');
 strapi().start();" > server.js
 pm2 start server.js  
-pm2 start npm --name strapi -- run start                           
+pm2 start npm --name strapi -- run start 
+pm2 monitor && pm2 startup                           
 EOF  
