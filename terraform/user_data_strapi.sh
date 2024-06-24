@@ -16,8 +16,8 @@ cd saniya-strapi-project
 echo "const strapi = require('@strapi/strapi');
 strapi().start();" > server.js
 pm2 start server.js
+pm2 start npm --name strapi -- run start
 sleep 100
-# pm2 start npm --name strapi -- run start 
 # pm2 monitor && pm2 startup                           
 # sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v18.0.0/bin /home/ubuntu/.nvm/versions/node/v18.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 
