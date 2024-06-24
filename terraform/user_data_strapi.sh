@@ -10,7 +10,7 @@ nvm install node && sudo apt install -y npm
 nvm install 18.0
 nvm use 18
 sudo apt update -y
-echo -e "skip/n" | npx create-strapi-app@latest saniya-strapi-project --quickstart
+echo -e "skip/n" | sudo npx create-strapi-app@latest saniya-strapi-project --quickstart
 sudo npm install -g pm2
 cd saniya-strapi-project
 echo "const strapi = require('@strapi/strapi');
@@ -19,4 +19,4 @@ pm2 start server.js
 pm2 start npm --name strapi -- run start 
 pm2 monitor && pm2 startup                           
 # sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v18.0.0/bin /home/ubuntu/.nvm/versions/node/v18.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
-EOF
+
