@@ -12,7 +12,7 @@ nvm use 18
 sudo apt update -y
 echo -e "skip/n" | npx create-strapi-app@latest saniya-strapi-project --quickstart
 cd saniya-strapi-project
-npm install pm2 -g
+sudo npm install -g pm2
 echo "const strapi = require('@strapi/strapi');
 strapi().start();" > server.js
 pm2 start server.js
