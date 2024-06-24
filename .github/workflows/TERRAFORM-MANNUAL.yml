@@ -37,7 +37,6 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        working-directory: ./terraform/user_data_strapi.sh
         run: terraform plan -no-color
 
       - name: Terraform Apply
