@@ -7,7 +7,7 @@ resource "aws_instance" "SaniyaStrapiEC2" {
 
   key_name                    = "k8-key-pair"
   associate_public_ip_address = true
-  user_data = file("user_data_strapi.sh")         
+  user_data = file("terraform/user_data_strapi.sh")         
   
   tags = {
     Name = "StrapiEC2"
