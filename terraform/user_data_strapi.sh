@@ -9,13 +9,10 @@ sudo chmod 764 ~/.nvm/nvm.sh
 nvm install node && sudo apt install -y npm
 nvm install 18.0
 nvm use 18
-echo -e "skip\n" | sudo npx create-strapi-app@latest strapi --quickstart
-sudo su
-cd /
-cd strapi
 sudo apt update -y -y && sudo npm install -g pm2
-pm2 start npm --name strapi -- run start 
-pm2 startup systemd
+echo -e "skip\n" | sudo npx create-strapi-app@latest strapi --quickstart
+pm2 start npm --name strapi -- run start
+sudo pm2 startup systemd
 pm2 ls
 
 # sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v18.0.0/bin /home/ubuntu/.nvm/versions/node/v18.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
