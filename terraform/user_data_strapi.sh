@@ -9,7 +9,7 @@ sudo chmod 764 ~/.nvm/nvm.sh
 nvm install node && sudo apt install -y npm
 nvm install 18.0
 nvm use 18
-echo -e "skip\n" | npx create-strapi-app@latest strapi --quickstart
+echo -e "skip\n" | sudo npx create-strapi-app@latest strapi --quickstart
 sudo su
 cd /
 cd strapi
