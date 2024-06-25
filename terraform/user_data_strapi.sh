@@ -13,9 +13,9 @@ sudo apt update -y
 sudo npm install -g yarn && sudo npm install -g pm2
 echo -e "skip/n" | sudo npx create-strapi-app@latest strapi --quickstart
 cd strapi
-sudo su
-echo "const strapi = require('@strapi/strapi');
-strapi().start();" > server.js
+# sudo su
+# echo "const strapi = require('@strapi/strapi');
+# strapi().start();" > server.js
 pm2 start server.js && pm2 save 
 pm2 restart server.js
 # pm2 start npm --name strapi -- run start
