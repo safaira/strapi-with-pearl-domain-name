@@ -13,4 +13,5 @@
     git clone https://github.com/safaira/strapi-ec2.git
     cd strapi
     pm2 start server.js
+    pm2 startup systemd -u ubuntu -hp /home/ubuntu/ && pm2 save
     sudo reboot
