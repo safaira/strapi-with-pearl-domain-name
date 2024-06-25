@@ -10,8 +10,8 @@ nvm install node && sudo apt install -y npm
 nvm install 18.0
 nvm use 18
 echo -e "skip\n" | npx create-strapi-app@latest strapi --quickstart
-cd /
 sudo su
+cd /
 cd strapi
 sudo apt update -y -y && sudo npm install -g pm2
 pm2 start npm --name strapi -- run start 
