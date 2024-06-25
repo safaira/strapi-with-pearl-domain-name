@@ -14,8 +14,8 @@ echo -e "skip\n" | npx create-strapi-app@latest strapi --quickstart
 cd strapi
 echo "const strapi = require('@strapi/strapi');
 strapi().start();" > server.js
-pm2 start server.js --name strapi
- 
+pm2 start server.js
+# sleep 100 
 # pm2 start npm --name strapi -- run start 
 # pm2 monitor && pm2 startup                           
 
