@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 sudo chmod 764 ~/.nvm/nvm.sh
 ~/.nvm/nvm.sh
-sudo apt install nodejs && sudo apt install -y npm
+sudo apt install nodejs -y && sudo apt install -y npm
 sudo apt update -y && sudo npm install -g pm2
 cd /srv/
 git clone https://github.com/safaira/strapi.git
