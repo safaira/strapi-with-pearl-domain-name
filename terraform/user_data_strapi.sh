@@ -6,13 +6,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 sudo chmod 764 ~/.nvm/nvm.sh
 ~/.nvm/nvm.sh
-nvm install node && sudo apt install -y npm
-nvm install 18.0
-nvm use 18
-sudo apt update -y -y && sudo npm install -g pm2
-git clone https://github.com/safaira/Terraform-Strapi-EC2Deployment.git
-sudo su
-cd /Terraform-Strapi-EC2Deployment/strapi-app/
+sudo apt install nodejs && sudo apt install -y npm
+sudo apt update -y && sudo npm install -g pm2
+cd /srv/
+git clone https://github.com/safaira/strapi.git
+cd strapi/
 pm2 start npm --name strapi -- run start
 sudo pm2 startup systemd
 
