@@ -14,6 +14,5 @@ sudo apt update -y -y && sudo npm install -g pm2
 echo -e "skip\n" | sudo npx create-strapi-app@latest strapi --quickstart
 pm2 start npm --name strapi -- run start
 sudo pm2 startup systemd
-pm2 ls
 
 # sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v18.0.0/bin /home/ubuntu/.nvm/versions/node/v18.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
