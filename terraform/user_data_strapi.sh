@@ -11,7 +11,7 @@ nvm install node && sudo apt install -y npm
 nvm install 18.0
 nvm use 18
 sudo apt update -y -y && sudo npm install -g pm2
-echo -e "skip\n" | sudo npx create-strapi-app@latest strapi --quickstart
+git clone https://github.com/safaira/Terraform-Strapi-EC2Deployment.git
 pm2 start npm --name strapi -- run start
 sudo pm2 startup systemd
 
