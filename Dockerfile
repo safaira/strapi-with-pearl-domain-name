@@ -1,11 +1,12 @@
-FROM strapi/base as BUILD
-WORKDIR /srv/app
-RUN sudo apt install -y npm 
-RUN sudo apt update -y && sudo npm install -g pm2
-RUN git clone 
-COPY ./app /srv/app
+FROM node:18 
+WORKDIR /srv/
+RUN sudo apt update -y 
+COPY . .
+RUN npm install -g npm@10.8.1 && npm install -g pm2
 EXPOSE 1337
-COPY docker-entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["docker-entrypoint.sh"]
+# CMD [ "npm", "start" ]
+CMD ["pm2-runtime", "start", "npm", "--", "run", "start"]
 
-CMD [ "npm", "start" ]
+
+
+
