@@ -1,28 +1,5 @@
-# #!/bin/bash
-# sudo apt update -y && sudo apt intall docker.io -y
-# git clone https://github.com/safaira/strapi.git
-# cd strapi/
-
-# # #build strapi image from dockerfile
-# # docker build . -t strapi:npm17
-
-# # Log in to Docker Hub to pull the image
-# echo $var.DOCKERHUB_PASSWORD | docker login -u $var.DOCKERHUB_USERNAME --password-stdin
-
-# # # tag and push the docker image
-# # docker tag strapi:latest saniyashaikh/strapi:npm17
-# # docker push saniyashaikh/strapi:npm17
-
-# # run container in detached mode
-# docker run -d --name strapi-app -p 1337:1337 saniyashaikh/strapi-app:npm17
-
-
-
-
-# # sudo env PATH=$PATH:/home/ubuntu/.nvm/versions/node/v18.0.0/bin /home/ubuntu/.nvm/versions/node/v18.0.0/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
-
-
 #!/bin/bash
+
 # Update the package index
 sudo apt update -y
 
