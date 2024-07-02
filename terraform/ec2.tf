@@ -80,14 +80,14 @@ resource "aws_security_group" "strapiEC2-sg" {
 }
 
 # Main hosted zone
-resource "aws_route53_zone" "main_zone" {
-  name = "strapi.in"
-}
+# resource "aws_route53_zone" "main_zone" {
+#   name = "strapi.in"
+# }
 
 # Subdomain record in the main hosted zone
 resource "aws_route53_record" "subdomain" {
-  zone_id = aws_route53_zone.main_zone.id
-  name    = "saniya.strapi.in"  
+  zone_id = Z06607023RJWXGXD2ZL6M
+  name    = "saniya.contentecho.in"  
   type    = "A"
   ttl     = 300
   records = [aws_instance.SaniyaStrapiEC2.public_ip]

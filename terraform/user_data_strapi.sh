@@ -34,7 +34,7 @@ sudo apt install -y nginx certbot python3-certbot-nginx
 cat <<EOF | sudo tee /etc/nginx/sites-available/strapi.conf
 server {
     listen 80;
-    server_name saniya.strapi.in;
+    server_name saniya.contentecho.in;
 
     location / {
         proxy_pass http://localhost:1337;
@@ -57,13 +57,13 @@ sudo nginx -t
 sudo systemctl reload nginx
 
 # Obtain SSL certificate using Certbot
-sudo certbot --nginx -d saniya.strapi.in --non-interactive --agree-tos -m saniyashaikh.de@gmail.com
+sudo certbot --nginx -d saniya.contentecho.in --non-interactive --agree-tos -m saniyashaikh.de@gmail.com
 
 # Update Nginx configuration to include SSL
 sudo sed -i '/listen 80;/a \
     listen 443 ssl; \
-    ssl_certificate /etc/letsencrypt/live/saniya.strapi.in/fullchain.pem; \
-    ssl_certificate_key /etc/letsencrypt/live/saniya.strapi.in/privkey.pem; \
+    ssl_certificate /etc/letsencrypt/live/saniya.contentecho.in/fullchain.pem; \
+    ssl_certificate_key /etc/letsencrypt/live/saniya.contentecho.in/privkey.pem; \
 ' /etc/nginx/sites-available/strapi.conf
 
 # Test the updated Nginx configuration
