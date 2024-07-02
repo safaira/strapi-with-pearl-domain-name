@@ -1,5 +1,28 @@
+
+# fetch AMI id and filter by name and alias and create instance from that id.
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-*-*-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "Root-device-type"
+    values = ["ebs"]
+  }
+
+  # owners = ["amazon"] # Canonical's AWS account ID for official Ubuntu images
+}
+
 resource "aws_instance" "SaniyaStrapiEC2" {
-  ami                         = var.ami
+  ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t2.medium"
   vpc_security_group_ids      = [aws_security_group.strapiEC2-sg.id]
 
