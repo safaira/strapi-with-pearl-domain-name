@@ -53,6 +53,18 @@ resource "aws_security_group" "strapiEC2-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = "443"
+    to_port     = "443"
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = "80"
+    to_port     = "80"
+    protocol    = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     from_port   = "0"
     to_port     = "0"
@@ -67,11 +79,11 @@ resource "aws_security_group" "strapiEC2-sg" {
 
 }
 
-# resource "aws_route53_record" "subdomain" {
-#   zone_id = 
-#   name    = "saniya.contentecho.in"
-#   type    = "A"
-#   ttl     = 300
-#   records = [aws_instance.SaniyaStrapiEC2.public_ip]
-# }
+resource "aws_route53_record" "subdomain" {
+  zone_id = Z00543372TU9YSA860WZA
+  name    = "saniya.strapi.in"
+  type    = "A"
+  ttl     = 300
+  records = [aws_instance.SaniyaStrapiEC2.public_ip]
+}
 
