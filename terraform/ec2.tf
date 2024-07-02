@@ -14,7 +14,7 @@ data "aws_ami" "ubuntu" {
   }
 
   filter {
-    name   = "Root-device-type"
+    name   = "root-device-type"
     values = ["ebs"]
   }
 
