@@ -30,7 +30,7 @@ resource "aws_instance" "SaniyaStrapiEC2" {
 
   subnet_id                   = aws_subnet.subnet1.id
 
-  key_name                    = "domain"
+  key_name                    = "domain" # k8-key-pair
   associate_public_ip_address = true
   user_data = file("user_data_strapi.sh")         
   
