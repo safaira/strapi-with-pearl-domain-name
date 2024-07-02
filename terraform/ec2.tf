@@ -2,6 +2,8 @@
 # fetch AMI id and filter by name and alias and create instance from that id.
 data "aws_ami" "ubuntu" {
   most_recent = true
+  owners      = ["amazon"]
+
 
   filter {
     name   = "name"
