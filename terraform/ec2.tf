@@ -28,7 +28,7 @@ resource "aws_instance" "SaniyaStrapiEC2" {
 
   subnet_id                   = aws_subnet.subnet1.id
 
-  key_name                    = "k8-key-pair"
+  key_name                    = "domain"
   associate_public_ip_address = true
   user_data = file("user_data_strapi.sh")         
   
@@ -86,7 +86,7 @@ resource "aws_security_group" "strapiEC2-sg" {
 
 # Subdomain record in the main hosted zone
 resource "aws_route53_record" "subdomain" {
-  zone_id = Z06607023RJWXGXD2ZL6M
+  zone_id = var.route53_zone_id
   name    = "saniya.contentecho.in"  
   type    = "A"
   ttl     = 300
