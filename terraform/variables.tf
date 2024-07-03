@@ -8,14 +8,14 @@ variable "route53_zone_id" {
   type        = string
 }
 
-# variable in workflow file should be assigned here.
-# variable "dockerhub_username" {
-#   description = "Docker Hub Username"
-#   type        = string
-# }
+variable in workflow file should be assigned here.
+variable "docker_hub_username" {
+  description = "Docker Hub Username"
+  type        = string
+}
 
-# variable "dockerhub_password" {
-#   description = "Docker Hub Password"
-#   type        = string
-#   sensitive   = true
-# }
+variable "docker_hub_password" {
+  description = "Docker Hub Password"
+  type        = string
+  sensitive   = true
+}
