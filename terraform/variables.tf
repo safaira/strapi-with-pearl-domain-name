@@ -8,7 +8,7 @@ variable "route53_zone_id" {
   type        = string
 }
 
-variable in workflow file should be assigned here.
+# variable in workflow file should be assigned here.
 variable "docker_hub_username" {
   description = "Docker Hub Username"
   type        = string
