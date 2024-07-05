@@ -5,7 +5,7 @@ resource "aws_lb" "alb_strapi" {
   internal           =  false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load_balancer_security_group.id]  # Security group ID
-  subnets            = [aws_subnet.subnet1.id]
+  subnets            = [aws_subnet.subnet1.id,aws_subnet.subnet2.id ]
   
   tags = {
     Name = "strapi_lb"
@@ -16,7 +16,7 @@ resource "aws_lb_target_group" "target_group" {
   name     = "my-target-group"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "aws_vpc.strapi_vpc.id"  # VPC ID
+  vpc_id   = aws_vpc.strapi_vpc.id  # VPC ID
 
   health_check {
     path = "/"
