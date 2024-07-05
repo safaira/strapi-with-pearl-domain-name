@@ -25,7 +25,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "SaniyaStrapiEC2" {
   ami                         = data.aws_ami.ubuntu.id
-  instance_type               = "t3.micro"
+  instance_type               = "t2.small"
   vpc_security_group_ids      = [aws_security_group.strapiEC2-sg.id]
 
   subnet_id                   = aws_subnet.subnet1.id
