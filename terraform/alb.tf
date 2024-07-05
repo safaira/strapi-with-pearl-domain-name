@@ -1,11 +1,11 @@
 
 
-resource "aws_lb" "alb" {
-  name               = "strapi_lb"
+resource "aws_lb" "alb_strapi" {
+  name               = "strapi-lb"
   internal           =  false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load_balancer_security_group.id]  # Security group ID
-#   subnets            = "aws_subnet.subnet1.id"
+  subnets            = "aws_subnet.subnet1.id"
   
   tags = {
     Name = "strapi_lb"

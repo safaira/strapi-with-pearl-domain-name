@@ -92,6 +92,6 @@ resource "aws_route53_record" "subdomain" {
   name    = "saniya.contentecho.in"  
   type    = "A"
   ttl     = 300
-  records = [aws_lb.alb.dns_name]
+  records = [aws_lb.alb_strapi.dns_name]
 }
 
