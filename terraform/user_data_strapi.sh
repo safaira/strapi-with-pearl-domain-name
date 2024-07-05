@@ -16,7 +16,7 @@ sudo usermod -aG docker ubuntu
 # # Retrieve Docker Hub credentials from AWS Secrets Manager
 # CREDENTIALS=$(aws secretsmanager get-secret-value --secret-id dockerhub_credentials --query SecretString --output text)
 # DOCKERHUB_USERNAME=$(echo $CREDENTIALS | jq -r '.username')
-# DOCKERHUB_PASSWORD=$(echo $CREDENTIALS | jq -r '.password')
+# DOCKERHUB_PASSWORD=$(echo $CREDENTIALS | jq -r '.password') 
 
 # # Log in to Docker Hub
 # echo $DOCKERHUB_PASSWORD | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin
