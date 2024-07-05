@@ -50,7 +50,10 @@ resource "aws_lb_listener" "https" {
 
 
 # security group for the load balancer:
-resource "aws_security_group" "load_balancer_security_group" {
+ resource "aws_security_group" "load_balancer_security_group" {
+   name        = "load_balancer_security_group"
+   description = "Security group for load balancer"
+   vpc_id      = aws_vpc.strapi_vpc.id
 
    ingress {
     from_port        = 80
