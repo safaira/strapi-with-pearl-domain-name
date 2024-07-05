@@ -5,7 +5,7 @@ resource "aws_lb" "alb_strapi" {
   internal           =  false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.load_balancer_security_group.id]  # Security group ID
-  subnets            = "aws_subnet.subnet1.id"
+  subnets            = [aws_subnet.subnet1.id]
   
   tags = {
     Name = "strapi_lb"
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "target_group" {
 
 # HTTP listener
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.alb.arn
+  load_balancer_arn = aws_lb.alb_strapi.arn
   port              = 80
   protocol          = "HTTP"
   default_action {
@@ -36,7 +36,7 @@ resource "aws_lb_listener" "http" {
 
 # HTTPS listener
 resource "aws_lb_listener" "https" {
-  load_balancer_arn = aws_lb.alb.arn
+  load_balancer_arn = aws_lb.alb_strapi.arn
   port              = 443
   protocol          = "HTTPS"
 #   ssl_policy        = "ELBSecurityPolicy-2016-08"
